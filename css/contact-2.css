@@ -1,0 +1,202 @@
+/* hero area */
+
+header.hero-area {
+    background: #f5f5f5;
+    padding-top: 170px;
+    padding-bottom: 50px;
+}
+
+.hero-area .header-title {
+    font-size: 62px;
+    font-weight: 100;
+    line-height: 50px;
+}
+
+@media (max-width: 490px) {
+    .hero-area .header-title {
+        font-size: 48px;
+        margin: 20px auto;
+    }
+}
+
+/* Location Area */
+
+.section-heading {
+    margin-bottom: 50px;
+}
+
+#location .location-sec {
+    padding: 30px;
+    cursor: pointer;
+    border: 1px solid #fbfbfb;
+    transition: 0.5s all ease-in-out;
+    -webkit-transition: 0.5s all ease-in-out;
+    -moz-transition: 0.5s all ease-in-out;
+    -o-transition: 0.5s all ease-in-out;
+    -ms-transition: 0.5s all ease-in-out;
+}
+
+#location .location-sec:hover {
+    background-color: #fbfbfb;
+    transition: 0.5s all ease-in-out;
+    -webkit-transition: 0.5s all ease-in-out;
+    -moz-transition: 0.5s all ease-in-out;
+    -o-transition: 0.5s all ease-in-out;
+    -ms-transition: 0.5s all ease-in-out;
+}
+
+#location .location-sec a {
+    font-size: 16px;
+    color: #8c8c8c;
+    font-weight: 400;
+}
+
+#location .location-sec a:hover {
+    color: #262c30;
+}
+
+/* Map Area */
+
+.map-area {
+    width: 100%;
+    height: 520px;
+    background: #f5f5f5;
+    overflow: hidden;
+    position: relative;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 970px) {
+    .map-area {
+        height: 420px;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 670px) {
+    .map-area {
+        height: 370px
+    }
+}
+
+@media (max-width: 490px) {
+    .map-area {
+        height: 300px
+    }
+}
+
+/* CTA Area */
+
+#call-to-action {
+    background: url("../img/hero-22.jpg") no-repeat transparent;
+    background-size: cover;
+    background-position: center;
+    min-height: 720px;
+}
+
+#call-to-action .header-text .header-heading {
+    margin-bottom: 25px;
+    font-size: 62px;
+    font-weight: 100;
+    line-height: 62px;
+}
+
+#call-to-action .header-text p {
+    font-size: 20px;
+    line-height: 28px;
+    opacity: .5;
+    margin-bottom: 30px;
+}
+
+.text-error {
+    font-size: 120px;
+    font-weight: 700;
+}
+
+@media (max-width: 970px) {
+    #call-to-action {
+        min-height: 640px;
+    }
+    #call-to-action .header-text .header-heading {
+        font-size: 48px;
+        line-height: 32px;
+    }
+    #call-to-action .header-text p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media (max-width: 670px) {
+    #call-to-action {
+        min-height: 580px;
+    }
+    #call-to-action .header-text .header-heading {
+        font-size: 36px;
+        line-height: 22px;
+    }
+}
+
+@media (max-width: 490px) {
+    #call-to-action {
+        min-height: 460px;
+    }
+    .text-error {
+        font-size: 90px;
+    }
+}
+
+@media (max-width: 400px) {
+    #call-to-action .header-text .header-heading {
+        font-size: 24px;
+        line-height: 2px;
+    }
+    #call-to-action .header-text p {
+        font-size: 12px;
+        line-height: 16px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Feedback Form */
+
+#contact-form-section {
+    background: #fbfbfb;
+}
+
+#contact-form {
+    width: 80%;
+}
+
+#contact-form label {
+    font-weight: 100;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#contact-form textarea {
+    padding: 16px 24px;
+}
+
+#contact-form button {
+    margin-top: 10px;
+}
+
+#contact-form::-webkit-input-placeholder,
+#contact-form::-moz-placeholder,
+#contact-form:-moz-placeholder,
+#contact-form:-ms-input-placeholder {
+    letter-spacing: 1px;
+    font-weight: 700;
+}
