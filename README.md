@@ -43,7 +43,7 @@ Hatırladığım kadarıyla ve bu yazıyı yazarken arada baktım  (▀̿Ĺ̯▀
 
 # Neler Yapmadım ?
 
-Scriptte görünüpte, belkide yapmadığım yarım kalmış birşeyler olabilir,net hatırladığım seo url yapısı yapmamıştım.  Sizede en başlarda böyle çalışmayı tavsiye ediyorum. Udemy üzerinden bir set yada youtubeden bir video izleyip aynısını yapmaya çalışmayın. Üzerine birşeyler ekleyin,kategori mi yaptı videoda sizde alt kategorili menü yapmaya çalışın gibi gibi.
+Scriptte görünüpte, belkide yapmadığım yarım kalmış birşeyler olabilir,net hatırladığım seo url yapısı yapmamıştım. 
 
 
 # Boş Muhabbet
