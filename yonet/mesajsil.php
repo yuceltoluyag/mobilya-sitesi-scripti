@@ -1,20 +1,17 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 require_once 'ust.php';
 
 if (isset($_GET['id'])) {
-
-
-    $sil = $db->prepare("DELETE FROM mesajlar WHERE  mesaj_id=?");
-    $silko = $sil->execute(array($_GET['id']));
+    $sil = $db->prepare('DELETE FROM mesajlar WHERE  mesaj_id=?');
+    $silko = $sil->execute([$_GET['id']]);
     if ($silko) {
-        header("Location: ../yonet/mesajlar.php");
+        header('Location: ../yonet/mesajlar.php');
     } else {
-        header("Location: ../yonet/mesajlar.php");
+        header('Location: ../yonet/mesajlar.php');
     }
 } else {
-    header("Location: ../yonet/mesajlar.php");
-    echo "hata";
+    header('Location: ../yonet/mesajlar.php');
+    echo 'hata';
 }
-?>

@@ -1,6 +1,6 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
@@ -41,24 +41,21 @@ require_once 'sol.php';
 
                     <?php
 
-                    function kategori ($k_id = 0, $st = 0)
+                    function kategori($k_id = 0, $st = 0)
                     {
-                        Global $db;
+                        global $db;
                         $kategoriler = $db->prepare("SELECT * FROM kategoriler WHERE kat_ust='$k_id'");
-                        $kategoriler->execute(array());
+                        $kategoriler->execute([]);
                         $tkategori = $kategoriler->fetchAll(PDO::FETCH_ASSOC);
                         $say = $kategoriler->rowCount();
                         if ($say) {
-
                             foreach ($tkategori as $row) {
-
-
                                 ?>
 
                                 <tr class="card-title">
-                                    <td><?php echo str_repeat("<span class='fa fa-angle-right'></span>",$st). $row['kat_adi']; ?></td>
+                                    <td><?php echo str_repeat("<span class='fa fa-angle-right'></span>", $st).$row['kat_adi']; ?></td>
                                     <td><?php echo $row['kat_aciklama']; ?></td>
-                                    <td><?php echo $row['kat_durum'] == 1 ? "<div class=\"label label-success\">Aktif</div>" : "<div class=\"label label-danger\">Pasif</div>" ?></td>
+                                    <td><?php echo $row['kat_durum'] == 1 ? '<div class="label label-success">Aktif</div>' : '<div class="label label-danger">Pasif</div>' ?></td>
                                  <td>
                                         <a class="btn btn-info edit"
                                            href="islemler.php?islem=kategoriduzenle&id=<?php echo $row['kat_id']; ?>"
@@ -67,7 +64,7 @@ require_once 'sol.php';
 
                                         </a>
 
-                                     <a class="btn btn-danger danger" data-kategori-id="<?php echo $row['kat_id'];?>"> <i class="fa fa-trash-o"></i> </a>
+                                     <a class="btn btn-danger danger" data-kategori-id="<?php echo $row['kat_id']; ?>"> <i class="fa fa-trash-o"></i> </a>
 
                                      <script type="text/javascript">
 
@@ -114,16 +111,13 @@ require_once 'sol.php';
 
                                  </td>
                                 </tr>
-                                <?php kategori($row['kat_id'],$st+1);?>
+                                <?php kategori($row['kat_id'], $st + 1); ?>
                                 <?php
                             }
-
                         }
-
                     }
 
                  kategori('kat_id');
-
 
                     ?>
 

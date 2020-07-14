@@ -1,12 +1,10 @@
-<?php 
+<?php
 
-define("guvenlik", true);
-require_once '../../sistem/fonksiyon.php' ;
+define('guvenlik', true);
+require_once '../../sistem/fonksiyon.php';
 
-       if(isset($_POST)) {
-       	
-
-              $ayarkaydet = $db->prepare('UPDATE ayarlar SET 
+       if (isset($_POST)) {
+           $ayarkaydet = $db->prepare('UPDATE ayarlar SET 
                   
                   site_facebook			  =:face,
                   site_twitter		    =:twit,
@@ -15,31 +13,20 @@ require_once '../../sistem/fonksiyon.php' ;
                               
                               WHERE site_id=1 	');
 
-             $noldu = $ayarkaydet->execute(array(
+           $noldu = $ayarkaydet->execute([
 
-                 ':face' => post('feysbuk'),
-                 ':twit' => post('twitter'),
-                 ':insta' => post('instagram')
-              	));
- 
-      		 }	else {
-       	 
-           	 header("Location: genelayarlar.php");
+               ':face'  => post('feysbuk'),
+               ':twit'  => post('twitter'),
+               ':insta' => post('instagram'),
+           ]);
+       } else {
+           header('Location: genelayarlar.php');
 
-				    exit(); // you should always do this
-       	 		
+           exit(); // you should always do this
        }
 
        if ($noldu) {
-    
-       	       echo 'ok';
-                 
-
+           echo 'ok';
        } else {
-
-       echo 'hata';
-
-
+           echo 'hata';
        }
-
-?>

@@ -2,19 +2,15 @@
 
 require_once '../sistem/fonksiyon.php';
 
-
 if ($_POST) {
-
     $adi = post('adsoyad');
     $tel = post('telefon');
     $mes = post('mesaj');
     $ip = IP();
 
     if (!$adi || !$tel || !$mes) {
-
         echo 'bos';
     } else {
-
         $mesajgonder = $db->prepare('INSERT INTO mesajlar SET
                
 
@@ -25,22 +21,17 @@ if ($_POST) {
                mesaj_ip=:ip
         	');
 
-        $mesajgonder->execute(array(
+        $mesajgonder->execute([
 
-
-            ':ad' => $adi,
+            ':ad'  => $adi,
             ':tel' => $tel,
             ':mes' => $mes,
             ':dur' => 2,
-            ':ip' => $ip
+            ':ip'  => $ip,
 
-        ));
-
+        ]);
 
         if ($mesajgonder) {
-
-
-
             require '../mail/PHPMailerAutoload.php';
 
             $mail = new PHPMailer(true);
@@ -48,17 +39,16 @@ if ($_POST) {
             $mail->SMTPDebug = 0;
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = 'tls';
-            $mail->Host = "smtp.yandex.com";
+            $mail->Host = 'smtp.yandex.com';
             $mail->Port = 587;
             $mail->IsHTML(true);
-            $mail->SetLanguage("tr", "phpmailer/language");
-            $mail->CharSet = "utf-8";
-            $mail->Username = "ytoluyag@yandex.com";
-            $mail->Password = "12435768";
-            $mail->SetFrom("ytoluyag@yandex.com", "Mobilyacı Abi");
+            $mail->SetLanguage('tr', 'phpmailer/language');
+            $mail->CharSet = 'utf-8';
+            $mail->Username = 'ytoluyag@yandex.com';
+            $mail->Password = '12435768';
+            $mail->SetFrom('ytoluyag@yandex.com', 'Mobilyacı Abi');
 
-
-            $mail->AddAddress("ytoluyag@gmail.com");
+            $mail->AddAddress('ytoluyag@gmail.com');
             $mail->Subject = $adi; // Konu basligi
             $mail->Body = $mes; // Mailin icerigi
 
@@ -66,17 +56,9 @@ if ($_POST) {
                 echo 'ok';
             }
         } else {
-
             echo 'hata';
         }
-
-
     }
-
 } else {
-
     header('Location:../iletisim.php');
 }
-
-
-?>

@@ -1,7 +1,7 @@
 <?php
 define('guvenlik', true);
-require_once("ust.php");
-require_once("navi.php");
+require_once 'ust.php';
+require_once 'navi.php';
 
 ?>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
@@ -15,20 +15,16 @@ require_once("navi.php");
                                 <?php
 
                                 $konu_bilgi = $_GET['urun_bilgi'];
-                                $urunsec = $db->prepare("SELECT * FROM urunler WHERE u_sef=:usef");
-                                $urunsec->execute(array(':usef' => $konu_bilgi));
+                                $urunsec = $db->prepare('SELECT * FROM urunler WHERE u_sef=:usef');
+                                $urunsec->execute([':usef' => $konu_bilgi]);
 
                                 if ($urunsec->rowCount()) {
-
-                                foreach ($urunsec
+                                    foreach ($urunsec
 
                                 as $ro) {
-
-                                $row = $urunsec->fetch(PDO::FETCH_ASSOC);
-
-                                ?>
+                                        $row = $urunsec->fetch(PDO::FETCH_ASSOC); ?>
                                 <figure>
-                                    <img src="<?php echo $ayarrow['site_url'] . $ro['u_resim'] ?>" alt="<?php echo $ro['u_baslik'] ?>"/>
+                                    <img src="<?php echo $ayarrow['site_url'].$ro['u_resim'] ?>" alt="<?php echo $ro['u_baslik'] ?>"/>
                                     <figcaption><?php echo $ro['u_baslik'] ?>
                                         <small><?php echo $ro['u_baslik'] ?></small>
                                     </figcaption>
@@ -36,13 +32,11 @@ require_once("navi.php");
 
                                 <?php
 
-                                $galeri = $db->prepare("SELECT * FROM galeri WHERE urun_id=:id");
-                                $galeri->execute(array(':id' => $ro['u_id']));
+                                $galeri = $db->prepare('SELECT * FROM galeri WHERE urun_id=:id');
+                                        $galeri->execute([':id' => $ro['u_id']]);
 
-                                while ($resec = $galeri->fetch(PDO::FETCH_ASSOC)) {
-
-
-                                    ?>
+                                        while ($resec = $galeri->fetch(PDO::FETCH_ASSOC)) {
+                                            ?>
 
                                     <figure>
                                         <img src="<?php echo $ayarrow['site_url'].$resec['galeri_url'] ?>" alt="<?php echo $ro['u_baslik'] ?>"/>
@@ -51,7 +45,8 @@ require_once("navi.php");
                                         </figcaption>
                                     </figure>
 
-                                <?php } ?>
+                                <?php
+                                        } ?>
                             </div>
                         </div>
 
@@ -185,26 +180,24 @@ require_once("navi.php");
                         <h2 class="section-heading">Beğenilen Ürünlerimiz</h2>
                     </div>
                     <div class="col-sm-4 col-xs-2 text-right">
-                        <a href="<?php echo $ayarrow['site_url'];?>/#urunler" class="btn btn-ghost hidden-xs">Tüm Ürünlerimiz<i class="fa fa-chevron-right"></i></a>
+                        <a href="<?php echo $ayarrow['site_url']; ?>/#urunler" class="btn btn-ghost hidden-xs">Tüm Ürünlerimiz<i class="fa fa-chevron-right"></i></a>
                         <a href="#" class="btn btn-ghost btn-icon-only visible-xs-block"><i class="fa fa-chevron-right"></i></a>
                     </div>
                 </div>
                 <div class="row">
         <?php
 
-        $benzersor=$db->prepare("SELECT * FROM urunler ORDER  BY rand() limit 6");
-        $benzersor->execute();
+        $benzersor = $db->prepare('SELECT * FROM urunler ORDER  BY rand() limit 6');
+                                        $benzersor->execute();
 
-        if ($benzersor->rowCount()){
-            foreach ($benzersor as $row){
-
-
-           ?>
+                                        if ($benzersor->rowCount()) {
+                                            foreach ($benzersor as $row) {
+                                                ?>
 
 
                             <div class="col-md-4 col-sm-6 col-xs-12">
                                 <figure class="wow fadeIn">
-                                    <img class="img-responsive" src="<?php echo $ayarrow['site_url'].$row['u_resim'];?>" alt="themesnerd">
+                                    <img class="img-responsive" src="<?php echo $ayarrow['site_url'].$row['u_resim']; ?>" alt="themesnerd">
                                     <figcaption>
                                         <a href="oku.php?urun_bilgi=<?php echo $row['u_sef']; ?>">
                                             <p class="product-title"><?php echo $row['u_baslik']; ?></p>
@@ -222,8 +215,9 @@ require_once("navi.php");
 
 
 
-        <?php }}
-?>
+        <?php
+                                            }
+                                        } ?>
                 </div>
             </div>
         </section>
@@ -238,16 +232,14 @@ require_once("navi.php");
                             </svg>
 
 
-                            <?php } ?>
+                            <?php
+                                    } ?>
 
 
 
 
                             <?php
-
-                            }
-                            else {
-
+                                } else {
                                 header('location:404.php');
                             }
 
@@ -294,4 +286,4 @@ require_once("navi.php");
 
 
     </section>
-<?php require_once("alt.php"); ?>
+<?php require_once 'alt.php'; ?>

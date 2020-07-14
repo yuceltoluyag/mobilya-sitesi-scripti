@@ -1,6 +1,6 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
@@ -89,9 +89,8 @@ require_once 'sol.php';
                                                 $kat->execute();
                                                 if ($kat->rowCount()) {
                                                     foreach ($kat as $k) {
-                                                        echo '<option value="' . $k['kat_id'] . '">' . $k ['kat_adi'] . '</option> ';
+                                                        echo '<option value="'.$k['kat_id'].'">'.$k['kat_adi'].'</option> ';
                                                     }
-
                                                 }
                                                 ?>
                                             </select>

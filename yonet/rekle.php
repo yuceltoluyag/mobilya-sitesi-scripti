@@ -1,5 +1,5 @@
 <?php
-define("guvenlik", true);
+define('guvenlik', true);
 require_once 'ust.php';
 require_once 'sol.php';
 ?>

@@ -1,9 +1,8 @@
 <?php
 
-$y = @$_GET["islem"];
+$y = @$_GET['islem'];
 
 if ($y) {
-
     switch ($y) {
 
         case 'sistem':
@@ -34,7 +33,6 @@ if ($y) {
             require_once 'menuduzenle.php';
             break;
 
-
         default:
             require_once 'index.php';
             break;
@@ -42,5 +40,3 @@ if ($y) {
 } else {
     echo 'Bir Hata Oluştu..';
 }
-
-?>

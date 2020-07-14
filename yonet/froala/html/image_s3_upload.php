@@ -12,18 +12,18 @@
   $accessKeyId = $_SERVER['AWS_ACCESS_KEY'];
   $secret = $_SERVER['AWS_SECRET_ACCESS_KEY'];
 
-  $policy = base64_encode(json_encode(array(
+  $policy = base64_encode(json_encode([
       // ISO 8601 - date('c'); generates uncompatible date, so better do it manually
       'expiration' => date('Y-m-d\TH:i:s.000\Z', strtotime('+1 day')),
-      'conditions' => array(
-          array('bucket' => $bucket),
-          array('acl' => $acl),
-          array('success_action_status' => '201'),
-          array('x-requested-with' => 'xhr'),
-          array('starts-with', '$key', $keyStart),
-          array('starts-with', '$Content-Type', '') // accept all files
-      )
-  )));
+      'conditions' => [
+          ['bucket' => $bucket],
+          ['acl'                   => $acl],
+          ['success_action_status' => '201'],
+          ['x-requested-with'      => 'xhr'],
+          ['starts-with', '$key', $keyStart],
+          ['starts-with', '$Content-Type', ''], // accept all files
+      ],
+  ]));
 
   $signature = base64_encode(hash_hmac('sha1', $policy, $secret, true));
 ?>

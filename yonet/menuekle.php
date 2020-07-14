@@ -1,6 +1,6 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
@@ -56,13 +56,14 @@ require_once 'sol.php';
                                             <option value="00">Ana Menü</option>
                                             <?php
                                             $veri = $db->prepare('SELECT * FROM  menuler WHERE menu_durum="1"');
-                                            $veri->execute(array());
+                                            $veri->execute([]);
                                             $v = $veri->fetchAll(PDO::FETCH_ASSOC);
                                             foreach ($v as $kat) {
                                                 ?>
                                                 <option value="<?php echo $kat['menu_id']; ?>"
                                                         onchange="java_script_:show(this.options[this.selectedIndex].value)"><?php echo $kat['menu_ad']; ?></option>
-                                            <?php } ?>
+                                            <?php
+                                            } ?>
                                         </select><br>
                                     </div>
                                 </div>
@@ -93,12 +94,13 @@ require_once 'sol.php';
                                             <optgroup  label="Sayfalar">
                                                 <?php
                                                 $veri = $db->prepare('SELECT * FROM  sayfalar WHERE sayfa_durum="1"');
-                                                $veri->execute(array());
+                                                $veri->execute([]);
                                                 $v = $veri->fetchAll(PDO::FETCH_ASSOC);
                                                 foreach ($v as $sayfa) {
                                                     ?>
                                                     <option value="<?php echo $sayfa['sayfa_seo']; ?>"><?php echo $sayfa['sayfa_adi']; ?></option>
-                                                <?php } ?>
+                                                <?php
+                                                } ?>
                                             </optgroup>
                                         </select>
 

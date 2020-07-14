@@ -1,4 +1,4 @@
-<?php !defined('guvenlik') ? die ('Erişim Yetkiniz Yok') : null; ?>
+<?php !defined('guvenlik') ? die('Erişim Yetkiniz Yok') : null; ?>
 <div class="container-fluid">
 
     <div class="row">
@@ -17,31 +17,28 @@
 
 
                         <?php
-                        $kategoriler = $db->prepare("SELECT * FROM  kategoriler ");
+                        $kategoriler = $db->prepare('SELECT * FROM  kategoriler ');
                         $kategoriler->execute();
 
                         if ($kategoriler->rowCount()) {
-                        foreach ($kategoriler as $row) {
-                            $urunbul = $db->prepare('SELECT u_katid FROM urunler WHERE u_katid=:id');
-                            $urunbul->execute(array(':id'=>$row['kat_id']));
-                            if ($urunbul->rowCount()){
-                        ?>
+                            foreach ($kategoriler as $row) {
+                                $urunbul = $db->prepare('SELECT u_katid FROM urunler WHERE u_katid=:id');
+                                $urunbul->execute([':id'=>$row['kat_id']]);
+                                if ($urunbul->rowCount()) {
+                                    ?>
 
                             <?php
 
-                            if ($row['kat_ust']=='0'){
-                                echo ' <div class="sidebar_head"><a href="' . $ayarrow['site_url'] . '/kategoriler.php?kat_url=' . $row['kat_sef'] . '">' . $row['kat_adi'] . '</a></div>';
-                            }else {
-                               echo '<ul class="sidebar_list"> <li><a href="' . $ayarrow['site_url'] . '/kategoriler.php?kat_url=' . $row['kat_sef'] . '">' . $row['kat_adi'] . '</a></li> </ul>';
-
-                            }
-
-                            ?>
+                            if ($row['kat_ust'] == '0') {
+                                echo ' <div class="sidebar_head"><a href="'.$ayarrow['site_url'].'/kategoriler.php?kat_url='.$row['kat_sef'].'">'.$row['kat_adi'].'</a></div>';
+                            } else {
+                                echo '<ul class="sidebar_list"> <li><a href="'.$ayarrow['site_url'].'/kategoriler.php?kat_url='.$row['kat_sef'].'">'.$row['kat_adi'].'</a></li> </ul>';
+                            } ?>
 
 
                         <?php
-                        }
-                        }
+                                }
+                            }
                         }
                         ?>
                     </div>

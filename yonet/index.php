@@ -1,5 +1,5 @@
 <?php
-define("guvenlik", true);
+define('guvenlik', true);
 require_once '../sistem/fonksiyon.php';
 ?>
 <!DOCTYPE html>
@@ -115,7 +115,7 @@ require_once '../sistem/fonksiyon.php';
     </section>
 
 <?php } else { ?>
-    <?php require_once("anasayfa.php"); ?>
+    <?php require_once 'anasayfa.php'; ?>
 <?php } ?>
 
 

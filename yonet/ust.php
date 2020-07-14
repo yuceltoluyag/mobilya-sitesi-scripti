@@ -1,9 +1,8 @@
 <?php
-!defined("guvenlik") ? header('Location:index.php') : null;
-require_once('../sistem/fonksiyon.php');
+!defined('guvenlik') ? header('Location:index.php') : null;
+require_once '../sistem/fonksiyon.php';
 
 if ($udur != 1) {
-
     header('Location:index.php');
 } elseif (!@$_SESSION['oturum']) {
     header('Location:index.php');
@@ -33,7 +32,7 @@ if ($udur != 1) {
 
 
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo $ayarrow["site_url"]; ?>/css/sweetalert.css"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo $ayarrow['site_url']; ?>/css/sweetalert.css"/>
 
 
     <title>Yönetici Paneli</title>

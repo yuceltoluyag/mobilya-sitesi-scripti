@@ -1,7 +1,7 @@
 <?php
 define('guvenlik', true);
-require_once("ust.php");
-require_once("navi.php");
+require_once 'ust.php';
+require_once 'navi.php';
 $kat_seo = $_GET['kat_url'];
 ?>
 <header class="hero-area">
@@ -27,28 +27,27 @@ if (!$s) {
     $s = 1;
 }
 
-$kategori = $db->prepare("SELECT * FROM kategoriler WHERE kat_sef=:sefkat");
-$kategori->execute(array(':sefkat' => $kat_seo));
+$kategori = $db->prepare('SELECT * FROM kategoriler WHERE kat_sef=:sefkat');
+$kategori->execute([':sefkat' => $kat_seo]);
 $katrow = $kategori->fetch(PDO::FETCH_ASSOC);
-$iceriksor = $db->prepare("SELECT * FROM urunler WHERE u_durum=:d AND u_katid=:yk");
-$iceriksor->execute(array(':d' => 1, ':yk' => $katrow['kat_id']));
+$iceriksor = $db->prepare('SELECT * FROM urunler WHERE u_durum=:d AND u_katid=:yk');
+$iceriksor->execute([':d' => 1, ':yk' => $katrow['kat_id']]);
 $toplam = $iceriksor->rowCount();
 $lim = $ayarrow['site_sayfalama'];
 $goster = $s * $lim - $lim;
 
-$sorgu = $db->prepare("SELECT * FROM urunler
+$sorgu = $db->prepare('SELECT * FROM urunler
              
              INNER JOIN kategoriler on kategoriler.kat_id = urunler.u_katid
              WHERE u_durum=:ud AND  kat_sef=:ks ORDER BY u_id DESC LIMIT :goster,:lim 
 
-            ");
+            ');
 
-$sorgu->bindValue(':ud', (int)1, PDO::PARAM_INT);
+$sorgu->bindValue(':ud', (int) 1, PDO::PARAM_INT);
 $sorgu->bindValue(':ks', $kat_seo, PDO::PARAM_STR);
-$sorgu->bindValue(':goster', (int)$goster, PDO::PARAM_INT);
-$sorgu->bindValue(':lim', (int)$lim, PDO::PARAM_INT);
+$sorgu->bindValue(':goster', (int) $goster, PDO::PARAM_INT);
+$sorgu->bindValue(':lim', (int) $lim, PDO::PARAM_INT);
 $sorgu->execute();
-
 
 if ($sorgu->rowCount()) {
     foreach ($sorgu as $row) {
@@ -77,43 +76,31 @@ if ($sorgu->rowCount()) {
         <?php
     }
 
-
-
     echo '<div class="row">
 <div aria-label="Page navigation">
 <ul class="pagination">';
     $ssayi = ceil($toplam / $lim);
     $flim = 3;
     if ($ssayi < 2) {
-
         null;
     } else {
-
         if ($s > 4) {
-
             $onceki = $s - 1;
 
-
-            echo '<li><a href="' . $ayarrow['site_url'] . '/kategoriler.php?kat_url=' . $kat_seo . '&s=1"><<<</a></li>';
+            echo '<li><a href="'.$ayarrow['site_url'].'/kategoriler.php?kat_url='.$kat_seo.'&s=1"><<<</a></li>';
             echo '<li class="prev">
-<a href="' . $ayarrow['site_url'] . '/kategoriler.php?kat_url=' . $kat_seo . '&s=' . $onceki . '" aria-label="Previous" class="disable">
+<a href="'.$ayarrow['site_url'].'/kategoriler.php?kat_url='.$kat_seo.'&s='.$onceki.'" aria-label="Previous" class="disable">
 <span aria-hidden="true">Önceki</span>
 </a>
 </li>';
         }
 
-
         for ($i = $s - $flim; $i < $s + $flim + 1; $i++) {
-
             if ($i > 0 && $i <= $ssayi) {
                 if ($i == $s) {
-
-                    echo '<li class="active"><a href="#">' . $i . '</a></li>';
-
+                    echo '<li class="active"><a href="#">'.$i.'</a></li>';
                 } else {
-
-                    echo '<li><a href="' . $ayarrow['site_url'] . '/kategoriler.php?kat_url=' . $kat_seo . '&s=' . $i . '">' . $i . '</a></li>';
-
+                    echo '<li><a href="'.$ayarrow['site_url'].'/kategoriler.php?kat_url='.$kat_seo.'&s='.$i.'">'.$i.'</a></li>';
                 }
             }
         }
@@ -121,14 +108,11 @@ if ($sorgu->rowCount()) {
         if ($s <= $ssayi - 4) {
             $sonraki = $s + 1;
 
-            echo '<li><a href="' . $ayarrow['site_url'] . '/kategoriler.php?kat_url=' . $kat_seo . '&s=' . $sonraki . '">></a></li>';
-            echo '<li><a href="' . $ayarrow['site_url'] . '/kategoriler.php?kat_url=' . $kat_seo . '&s=' . $ssayi . '">>>></a></li>';
-
+            echo '<li><a href="'.$ayarrow['site_url'].'/kategoriler.php?kat_url='.$kat_seo.'&s='.$sonraki.'">></a></li>';
+            echo '<li><a href="'.$ayarrow['site_url'].'/kategoriler.php?kat_url='.$kat_seo.'&s='.$ssayi.'">>>></a></li>';
         }
     }
-
 } else {
-
     echo 'Bu kategoride ürün bulunmamaktadır';
 }
 ?>
@@ -142,7 +126,5 @@ if ($sorgu->rowCount()) {
 <?php
 
 require_once 'alt.php';
-
-
 
 ?>

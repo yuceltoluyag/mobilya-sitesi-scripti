@@ -1,17 +1,15 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
 
 $sbul = $db->prepare('SELECT * FROM urunler WHERE u_id=:sid');
-$sbul->execute(array(':sid' => $_GET['id']));
+$sbul->execute([':sid' => $_GET['id']]);
 $sicek = $sbul->fetch(PDO::FETCH_ASSOC);
 
 if ($sicek) {
-
-
     ?>
 
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
@@ -149,8 +147,8 @@ if ($sicek) {
 
 
 
-<?php } else {
-
-    header('Location: urunler.php');
-}
+<?php
+} else {
+        header('Location: urunler.php');
+    }
 require_once 'alt.php'; ?>

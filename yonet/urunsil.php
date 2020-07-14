@@ -1,39 +1,33 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 require_once 'ust.php';
 
 $id = $_GET['id'];
 if (isset($id)) {
-
     $u = urungetir($id);
-    foreach ($u as $urunler) ;
-    $eskiresim = '../' . $urunler['u_resim'];
-    $sil = $db->prepare("DELETE FROM urunler WHERE  u_id=:sid");
-    $silko = $sil->execute(array(':sid' => $id));
+    foreach ($u as $urunler);
+    $eskiresim = '../'.$urunler['u_resim'];
+    $sil = $db->prepare('DELETE FROM urunler WHERE  u_id=:sid');
+    $silko = $sil->execute([':sid' => $id]);
     if ($silko) {
         unlink($eskiresim);
         $siparissil = $db->prepare('DELETE FROM siparisler WHERE s_urunid=?');
-        $siparissil->execute(array($id));
+        $siparissil->execute([$id]);
     }
 
     $veri = $db->prepare("SELECT * FROM galeri WHERE urun_id='$id'");
-    $veri->execute(array());
+    $veri->execute([]);
     $gsil = $db->prepare('DELETE FROM galeri WHERE urun_id=?');
-    $gsil->execute(array($id));
+    $gsil->execute([$id]);
     while ($cikti = $veri->fetch(PDO::FETCH_ASSOC)) {
-        $galerisil = '../' . $cikti['galeri_url'];
-         unlink($galerisil);
-             echo 'ok';
+        $galerisil = '../'.$cikti['galeri_url'];
+        unlink($galerisil);
+        echo 'ok';
     }
-
 } else {
 
     //	 header("Location: ../yonet/urunler.php");
 
     echo 'bos';
-
 }
-
-
-?>

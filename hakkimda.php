@@ -1,7 +1,7 @@
 <?php
 define('guvenlik', true);
-require_once("ust.php");
-require_once("navi.php");
+require_once 'ust.php';
+require_once 'navi.php';
 ?>
 
 <header class="hero-area">

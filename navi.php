@@ -1,4 +1,4 @@
-<?php !defined('guvenlik') ? die ('Erişim Yetkiniz Yok') : null; ?>
+<?php !defined('guvenlik') ? die('Erişim Yetkiniz Yok') : null; ?>
 <!-- Menü-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -28,17 +28,17 @@
             <ul class="nav navbar-nav navbar-left">
 
                 <?php
-                $sql = "SELECT * FROM menuler WHERE menu_ust = 0";
+                $sql = 'SELECT * FROM menuler WHERE menu_ust = 0';
                 $pquery = $db->query($sql);
                 ?>
 
-                <?php while ($parent = $pquery->fetch(PDO::FETCH_ASSOC)) : ?>
+                <?php while ($parent = $pquery->fetch(PDO::FETCH_ASSOC)) { ?>
                     <?php
                     $parent_id = $parent['menu_id'];
                     $sql2 = "SELECT * FROM menuler WHERE menu_ust = '$parent_id'";
                     $cquery = $db->query($sql2);
                     $altmenu = $db->prepare('SELECT * FROM menuler WHERE menu_ust=? ORDER BY menu_sira');
-                    $altmenu->execute(array($parent_id));
+                    $altmenu->execute([$parent_id]);
                     $say = $altmenu->rowCount();
                     ?>
                     <!-- Menu Items -->
@@ -47,21 +47,21 @@
                     } ?>>
 
                         <a href="<?php echo $parent['menu_url']; ?>" <?php if ($say > 0) {
-                            echo 'class="dropdown-toggle" data-toggle="dropdown"';
-                        } ?>>
+                        echo 'class="dropdown-toggle" data-toggle="dropdown"';
+                    } ?>>
                             <?php echo $parent['menu_ad']; ?>
                             <?php if ($say > 0) {
-                                echo "<span class=\"caret\"></span>";
-                            } ?></a>
+                        echo '<span class="caret"></span>';
+                    } ?></a>
                         <ul class="dropdown-menu" role="menu">
-                            <?php while ($child = $cquery->fetch(PDO::FETCH_ASSOC)) : ?>
+                            <?php while ($child = $cquery->fetch(PDO::FETCH_ASSOC)) { ?>
                                 <li>
                                     <a href="sayfalar.php?do&sayfa=<?php echo $child['menu_url']; ?>"><?php echo $child['menu_ad']; ?></a>
                                 </li>
-                            <?php endwhile; ?>
+                            <?php } ?>
                         </ul>
                     </li>
-                <?php endwhile; ?>
+                <?php } ?>
             </ul>
         </div>
 

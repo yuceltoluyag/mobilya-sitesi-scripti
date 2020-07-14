@@ -1,4 +1,4 @@
-<?php !defined("guvenlik") ? header('Location:index.php') : null;
+<?php !defined('guvenlik') ? header('Location:index.php') : null;
 require_once 'ust.php';
 require_once 'sol.php';
 ?>
@@ -28,8 +28,8 @@ require_once 'sol.php';
                                     </div>
                                     <div class="col-xs-6 text-right">
                                         <?php
-                                        $veri = $db->prepare("SELECT * FROM urunler");
-                                        $veri->execute(array());
+                                        $veri = $db->prepare('SELECT * FROM urunler');
+                                        $veri->execute([]);
                                         $arr = $veri->fetchAll(PDO::FETCH_ASSOC);
                                         $say = $veri->rowCount();
                                         echo $say;
@@ -61,8 +61,8 @@ require_once 'sol.php';
                                     </div>
                                     <div class="col-xs-6 text-right">
                                         <?php
-                                        $veri = $db->prepare("SELECT * FROM siparisler");
-                                        $veri->execute(array());
+                                        $veri = $db->prepare('SELECT * FROM siparisler');
+                                        $veri->execute([]);
                                         $arr = $veri->fetchAll(PDO::FETCH_ASSOC);
                                         $say = $veri->rowCount();
                                         echo $say;
@@ -94,8 +94,8 @@ require_once 'sol.php';
                                     </div>
                                     <div class="col-xs-6 text-right">
                                         <?php
-                                        $veri = $db->prepare("SELECT z_ip FROM ziyaretci GROUP BY z_ip");
-                                        $veri->execute(array());
+                                        $veri = $db->prepare('SELECT z_ip FROM ziyaretci GROUP BY z_ip');
+                                        $veri->execute([]);
                                         $arr = $veri->fetchAll(PDO::FETCH_ASSOC);
                                         $say = $veri->rowCount();
                                         echo $say;
@@ -127,8 +127,8 @@ require_once 'sol.php';
                                     </div>
                                     <div class="col-xs-6 text-right">
                                         <?php
-                                        $veri = $db->prepare("SELECT * FROM mesajlar");
-                                        $veri->execute(array());
+                                        $veri = $db->prepare('SELECT * FROM mesajlar');
+                                        $veri->execute([]);
                                         $arr = $veri->fetchAll(PDO::FETCH_ASSOC);
                                         $say = $veri->rowCount();
                                         echo $say;

@@ -1,4 +1,4 @@
-<?php !defined("guvenlik") ? header('Location:index.php') : null; ?>
+<?php !defined('guvenlik') ? header('Location:index.php') : null; ?>
 <!-- Side-Nav-->
 <aside class="main-sidebar hidden-print">
     <section class="sidebar">

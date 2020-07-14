@@ -1,15 +1,15 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
 $kid = $_GET['id'];
 
 $veri = $db->prepare("SELECT * FROM  menuler WHERE menu_id='$kid'");
-$veri->execute(array());
+$veri->execute([]);
 $v = $veri->fetchAll(PDO::FETCH_ASSOC);
-foreach ($v as $kat) ;
+foreach ($v as $kat);
 $k_ust = $kat['menu_ust'];
 
 ?>
@@ -100,15 +100,15 @@ $k_ust = $kat['menu_ust'];
                                             <?php
 
                                             $veri = $db->prepare('SELECT * FROM  menuler WHERE menu_durum="1"');
-                                            $veri->execute(array());
+                                            $veri->execute([]);
                                             $v = $veri->fetchAll(PDO::FETCH_ASSOC);
                                             foreach ($v as $cat) {
-                                                $kate_id = $cat['menu_id'];
-                                                ?>
+                                                $kate_id = $cat['menu_id']; ?>
                                                 <option <?php echo $kate_id == $k_ust ? 'selected' : ''; ?> value="<?php echo $cat['menu_id']; ?>"><?php echo $cat['menu_ad']; ?></option>
 
 
-                                            <?php } ?>
+                                            <?php
+                                            } ?>
                                         </select><br>
                                     </div>
                                 </div>

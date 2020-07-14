@@ -1,6 +1,6 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
@@ -43,14 +43,14 @@ require_once 'sol.php';
                             </tr>
                             </thead>
                             <?php
-                            $popup = $db->prepare("SELECT * FROM reklamlar");
+                            $popup = $db->prepare('SELECT * FROM reklamlar');
                             $popup->execute();
                             while ($reklam = $popup->fetch(PDO::FETCH_ASSOC)) {
-                            ?>
+                                ?>
                             <tbody>
                             <tr>
                                 <td><img style="width:15vh;" class="img-responsive"
-                                         src="<?php echo $ayarrow['site_url'] . $reklam['reklam_resim']; ?>"
+                                         src="<?php echo $ayarrow['site_url'].$reklam['reklam_resim']; ?>"
                                          alt="Reklam Resmi"></td>
                                 <td><?php echo $reklam['reklam_baslik']; ?></td>
                                 <td><?php echo $reklam['reklam_icerik']; ?></td>

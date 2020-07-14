@@ -1,12 +1,12 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
 
 $sbul = $db->prepare('SELECT * FROM slider WHERE slider_id=:sid');
-$sbul->execute(array(':sid' => $_GET['id']));
+$sbul->execute([':sid' => $_GET['id']]);
 $sicek = $sbul->fetch(PDO::FETCH_ASSOC);
 
 ?>

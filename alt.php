@@ -1,5 +1,5 @@
-<?php !defined('guvenlik') ? die ('Erişim Yetkiniz Yok') : null;
-takip();?>
+<?php !defined('guvenlik') ? die('Erişim Yetkiniz Yok') : null;
+takip(); ?>
 <div id="sallama" style="position: fixed;bottom: 0;height: 11px; display: none;"></div>
 
     <section id="cta-1">
@@ -9,7 +9,7 @@ takip();?>
                     <div class="header-text">
                         <h2 class="header-heading"><?php echo $haritas['iletisim_ust']; ?></h2>
                         <p><?php echo $haritas['iletisim_alt']; ?></p>
-                        <a href="<?php echo $ayarrow['site_url'];?>/iletisim.php" class="btn btn-outline btn-lg">İletişim <i class="fa fa-chevron-right"></i></a>
+                        <a href="<?php echo $ayarrow['site_url']; ?>/iletisim.php" class="btn btn-outline btn-lg">İletişim <i class="fa fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -46,18 +46,18 @@ takip();?>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <p class="credit-text">© - <?php echo $ayarrow['site_baslik'];?></p>
+                    <p class="credit-text">© - <?php echo $ayarrow['site_baslik']; ?></p>
                 </div>
                 <div class="col-md-4 col-sm-6 text-center hidden-sm hidden-xs">
                     <ul class="list-inline social-buttons">
                         <li>
-                            <a href="<?php echo $ayarrow['site_twitter'];?>"><i class="fa fa-twitter"></i></a>
+                            <a href="<?php echo $ayarrow['site_twitter']; ?>"><i class="fa fa-twitter"></i></a>
                         </li>
                         <li>
-                            <a href="<?php echo $ayarrow['site_facebook'];?>"><i class="fa fa-facebook"></i></a>
+                            <a href="<?php echo $ayarrow['site_facebook']; ?>"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li>
-                            <a href="<?php echo $ayarrow['site_instagram'];?>"><i class="fa fa-instagram"></i></a>
+                            <a href="<?php echo $ayarrow['site_instagram']; ?>"><i class="fa fa-instagram"></i></a>
                         </li>
 
                     </ul>

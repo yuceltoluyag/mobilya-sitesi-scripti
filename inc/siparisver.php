@@ -1,26 +1,18 @@
-<?php 
-
+<?php
 
 require_once '../sistem/fonksiyon.php';
 
-
 if ($_POST) {
+    $urid = post('uid');
+    $adsoyad = post('adsoyad');
+    $eposta = post('eposta');
+    $telno = post('telno');
+    $mesaj = post('mesaj');
 
-    $urid    = post('uid');
-	$adsoyad = post('adsoyad');
-	$eposta  = post('eposta');
-	$telno   = post('telno');
-	$mesaj   = post('mesaj');
-
-
-
-	if (!$adsoyad || !$eposta || !$telno || !$mesaj){
-
-		echo 'bos';
-
-	}else {
-
-		$sekle = $db->prepare('INSERT INTO siparisler SET
+    if (!$adsoyad || !$eposta || !$telno || !$mesaj) {
+        echo 'bos';
+    } else {
+        $sekle = $db->prepare('INSERT INTO siparisler SET
             
 			s_adsoy  =:sad,
 			s_eposta =:sap,
@@ -30,36 +22,21 @@ if ($_POST) {
 
 			');
 
-		$sekle->execute(array(
+        $sekle->execute([
 
-			':sad' => $adsoyad,
-			':sap' => $eposta,
-			':stel'=> $telno,
-			':sem' => $mesaj,
-			':sid' => $urid
-			));
+            ':sad' => $adsoyad,
+            ':sap' => $eposta,
+            ':stel'=> $telno,
+            ':sem' => $mesaj,
+            ':sid' => $urid,
+        ]);
 
-
-
-		if ($sekle) {
-
-			echo 'ok';
-
-		} else {
-
-			echo 'hata';
-		}
-	}
-}	else {
-
-	header('Location:../index.php');
+        if ($sekle) {
+            echo 'ok';
+        } else {
+            echo 'hata';
+        }
+    }
+} else {
+    header('Location:../index.php');
 }
-
-
-
-
-
-
-
-
-?>

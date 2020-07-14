@@ -1,15 +1,15 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
 $kid = $_GET['id'];
 
 $veri = $db->prepare("SELECT * FROM  kategoriler WHERE kat_id='$kid'");
-$veri->execute(array());
+$veri->execute([]);
 $v = $veri->fetchAll(PDO::FETCH_ASSOC);
-foreach ($v as $kat) ;
+foreach ($v as $kat);
 $k_ust = $kat['kat_ust'];
 
 ?>
@@ -98,15 +98,15 @@ $k_ust = $kat['kat_ust'];
                                             <?php
 
                                             $veri = $db->prepare('SELECT * FROM  kategoriler WHERE kat_durum="1"');
-                                            $veri->execute(array());
+                                            $veri->execute([]);
                                             $v = $veri->fetchAll(PDO::FETCH_ASSOC);
                                             foreach ($v as $cat) {
-                                                $kate_id = $cat['kat_id'];
-                                                ?>
+                                                $kate_id = $cat['kat_id']; ?>
                                                 <option <?php echo $kate_id == $k_ust ? 'selected' : ''; ?> value="<?php echo $cat['kat_id']; ?>"><?php echo $cat['kat_adi']; ?></option>
 
 
-                                            <?php } ?>
+                                            <?php
+                                            } ?>
                                         </select><br>
                                     </div>
                                 </div>

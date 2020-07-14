@@ -1,6 +1,6 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
@@ -44,22 +44,19 @@ require_once 'sol.php';
 
                         function menu($k_id = 0, $st = 0)
                         {
-                            Global $db;
+                            global $db;
                             $menuler = $db->prepare("SELECT * FROM menuler WHERE menu_ust='$k_id' ORDER BY menu_sira ASC");
-                            $menuler->execute(array());
+                            $menuler->execute([]);
                             $tmenu = $menuler->fetchAll(PDO::FETCH_ASSOC);
                             $say = $menuler->rowCount();
                             if ($say) {
-
                                 foreach ($tmenu as $row) {
-
-
                                     ?>
 
                                     <tr class="card-title">
-                                        <td><?php echo str_repeat("<span class='fa fa-angle-right'></span>", $st) . $row['menu_ad']; ?></td>
-                                        <td><?php echo $row['menu_durum'] == 1 ? "<div class=\"label label-success\">Aktif</div>" : "<div class=\"label label-danger\">Pasif</div>" ?></td>
-                                        <td><?php echo str_repeat("<span class='fa fa-angle-right'></span>", $st) . $row['menu_sira']; ?></td>
+                                        <td><?php echo str_repeat("<span class='fa fa-angle-right'></span>", $st).$row['menu_ad']; ?></td>
+                                        <td><?php echo $row['menu_durum'] == 1 ? '<div class="label label-success">Aktif</div>' : '<div class="label label-danger">Pasif</div>' ?></td>
+                                        <td><?php echo str_repeat("<span class='fa fa-angle-right'></span>", $st).$row['menu_sira']; ?></td>
 
                                         <td>
                                             <a class="btn btn-info edit"
@@ -116,13 +113,10 @@ require_once 'sol.php';
                                     <?php menu($row['menu_id'], $st + 1); ?>
                                     <?php
                                 }
-
                             }
-
                         }
 
                         menu('menu_id');
-
 
                         ?>
 

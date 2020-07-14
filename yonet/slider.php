@@ -1,6 +1,6 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
@@ -42,12 +42,10 @@ require_once 'sol.php';
 
 <?php
 
-$slider = $db->prepare("SELECT * FROM slider ORDER BY slider_durum DESC,slider_sira ASC LIMIT 25");
+$slider = $db->prepare('SELECT * FROM slider ORDER BY slider_durum DESC,slider_sira ASC LIMIT 25');
 $slider->execute();
 
 while ($scek = $slider->fetch(PDO::FETCH_ASSOC)) {
-
-
     ?>
     <tbody>
     <tr>
@@ -55,7 +53,7 @@ while ($scek = $slider->fetch(PDO::FETCH_ASSOC)) {
                  alt="Cinque Terre"></td>
         <td><?php echo $scek['slider_ad']; ?></td>
         <td><?php echo $scek['slider_sira']; ?></td>
-        <td><?php echo $scek['slider_durum'] == 1 ? "<div class=\"label label-success\">Aktif</div>" : "<div class=\"label label-danger\">Pasif</div>" ?></td>
+        <td><?php echo $scek['slider_durum'] == 1 ? '<div class="label label-success">Aktif</div>' : '<div class="label label-danger">Pasif</div>' ?></td>
         <td> <a class="btn btn-info edit"
                 href="sduzenle.php?&id=<?php echo $scek['slider_id']; ?>"
                 aria-label="Settings">
@@ -102,7 +100,6 @@ while ($scek = $slider->fetch(PDO::FETCH_ASSOC)) {
 
     </tr>
     <?php
-
 }
 
 ?>

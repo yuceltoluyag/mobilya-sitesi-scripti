@@ -1,4 +1,4 @@
-<?php !defined('guvenlik') ? die ('Erişim Yetkiniz Yok') : null; ?>
+<?php !defined('guvenlik') ? die('Erişim Yetkiniz Yok') : null; ?>
 <!-- Menü-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -26,13 +26,13 @@
         </div>
         <div class="collapse navbar-collapse" id="main-menu">
             <?php
-            $menusor  = $db->prepare("SELECT * FROM menuler");
+            $menusor = $db->prepare('SELECT * FROM menuler');
             $menusor->execute();
 
-            $menu = array(
-                'menus' => array(),
-                'parent_menus' => array()
-            );
+            $menu = [
+                'menus'        => [],
+                'parent_menus' => [],
+            ];
 
             //Db Menü
             while ($row = $menusor->fetch(PDO::FETCH_ASSOC)) {
@@ -40,29 +40,31 @@
                 $menu['parent_menus'][$row['menu_ust']][] = $row['menu_id'];
             }
             // Multi Menü
-            function multimenu($parent, $menu) {
-                $html = "";
+            function multimenu($parent, $menu)
+            {
+                $html = '';
                 if (isset($menu['parent_menus'][$parent])) {
                     if ($parent == 0) {
                         $html .= "<ul class='nav navbar-nav navbar-left'>";
-                    }else{
+                    } else {
                         $html .= "<ul class='dropdown-menu'>";
                     }
 
                     foreach (@$menu['parent_menus'][$parent] as $menu_id) {
                         if (!isset($menu['parent_menus'][$menu_id])) {
                             echo $menu['parent_menus'][$menu_id];
-                            $html .= "<li><a href='" . $menu['menus'][$menu_id]['menu_url'] . "'>" . $menu['menus'][$menu_id]['menu_ad'] . "</a></li>";
+                            $html .= "<li><a href='".$menu['menus'][$menu_id]['menu_url']."'>".$menu['menus'][$menu_id]['menu_ad'].'</a></li>';
                         }
                         if (isset($menu['parent_menus'][$menu_id])) {
                             $html .= "<li class='dropdown'>
-				<a class='active dropdown-toggle' data-toggle='dropdown' href='" . $menu['menus'][$menu_id]['menu_url'] . "'>" . $menu['menus'][$menu_id]['menu_ad'] . "<b class='caret'></b></a>";
+				<a class='active dropdown-toggle' data-toggle='dropdown' href='".$menu['menus'][$menu_id]['menu_url']."'>".$menu['menus'][$menu_id]['menu_ad']."<b class='caret'></b></a>";
                             $html .= multimenu($menu_id, $menu);
-                            $html .= "</li>";
+                            $html .= '</li>';
                         }
                     }
-                    $html .= "</ul>";
+                    $html .= '</ul>';
                 }
+
                 return $html;
             }
             ?>

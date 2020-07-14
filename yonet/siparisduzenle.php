@@ -1,11 +1,11 @@
 <?php
-define("guvenlik", true);
+define('guvenlik', true);
 require_once 'ust.php';
 require_once 'sol.php';
 $sid = $_GET['id'];
 $urun = $db->prepare('SELECT * FROM urunler
                        INNER JOIN siparisler on siparisler.s_urunid = urunler.u_id WHERE sip_id=?');
-$urun->execute(array($sid));
+$urun->execute([$sid]);
 $row = $urun->fetch(PDO::FETCH_ASSOC);
 ?>
 <div class="content-wrapper">
@@ -65,7 +65,7 @@ $row = $urun->fetch(PDO::FETCH_ASSOC);
                                     <div class="col-lg-10">
                                         <input class="form-control" name="sipad" id="disabledInput" type="text"
                                                value="<?php echo $row['s_adsoy']; ?>" disabled>
-                                        <input class="form-control" type="hidden" name="siparisid"  value="<?php echo $row['sip_id'];?>">
+                                        <input class="form-control" type="hidden" name="siparisid"  value="<?php echo $row['sip_id']; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">

@@ -1,4 +1,4 @@
-<?php !defined('guvenlik') ? die ('Erişim Yetkiniz Yok') : null; ?>
+<?php !defined('guvenlik') ? die('Erişim Yetkiniz Yok') : null; ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div class="col-sm-9 sidebar_right_div">
     <div class="cssload-jumping load_more hide">
@@ -8,8 +8,8 @@
     $popup = $db->prepare('SELECT * FROM reklamlar');
     $popup->execute();
     $reklam = $popup->fetch(PDO::FETCH_OBJ);
-    if ($reklam->reklam_onay == "1") {
-        setcookie("reklam", $reklam->reklam_baslik, strtotime("+" . $reklam->reklam_zaman . " hours"), '/', null, null, true);
+    if ($reklam->reklam_onay == '1') {
+        setcookie('reklam', $reklam->reklam_baslik, strtotime('+'.$reklam->reklam_zaman.' hours'), '/', null, null, true);
     }
     ?>
     <!-- Modal -->
@@ -26,7 +26,7 @@
                 </div>
                 <div class="modal-body">
                     <img class="img-responsive img-thumbnail"
-                         src="<?php echo $ayarrow['site_url'] . $reklam->reklam_resim; ?>"
+                         src="<?php echo $ayarrow['site_url'].$reklam->reklam_resim; ?>"
                     <p class="p-1"><?php echo $reklam->reklam_icerik; ?></p>
                 </div>
                 <div class="modal-footer">
@@ -37,7 +37,7 @@
     </div>
     <?php
 
-    if ($reklam->reklam_onay == "1" and !isset($_COOKIE["reklam"])) { ?>
+    if ($reklam->reklam_onay == '1' and !isset($_COOKIE['reklam'])) { ?>
         <script>
             $().ready(function () {
                 $("#exampleModal").modal("show");

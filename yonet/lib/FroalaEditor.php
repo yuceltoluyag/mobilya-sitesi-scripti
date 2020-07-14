@@ -1,21 +1,21 @@
 <?php
 /**
- * Froala Editor PHP SDK
+ * Froala Editor PHP SDK.
  *
  * @copyright  2016 Froala Labs
  */
-
-require_once('autoload.php');
+require_once 'autoload.php';
 
 if (version_compare(PHP_VERSION, '5.4.0', '<')) {
     throw new Braintree_Exception('PHP version >= 5.4.0 required');
 }
 
-function requireDependencies() {
+function requireDependencies()
+{
     $requiredExtensions = ['fileinfo', 'imagick'];
-    foreach ($requiredExtensions AS $ext) {
+    foreach ($requiredExtensions as $ext) {
         if (!extension_loaded($ext)) {
-            throw new Exception('The Froala Editor SDK library requires the ' . $ext . ' extension.');
+            throw new Exception('The Froala Editor SDK library requires the '.$ext.' extension.');
         }
     }
 }

@@ -1,9 +1,9 @@
 <?php
-define("guvenlik", true);
+define('guvenlik', true);
 require_once 'ust.php';
 require_once 'sol.php';
 $sbul = $db->prepare('SELECT * FROM reklamlar WHERE reklam_id=:sid');
-$sbul->execute(array(':sid' => $_GET['id']));
+$sbul->execute([':sid' => $_GET['id']]);
 $reklam = $sbul->fetch(PDO::FETCH_ASSOC);
 
 ?>
@@ -65,7 +65,7 @@ $reklam = $sbul->fetch(PDO::FETCH_ASSOC);
                                         <label class="col-lg-2 control-label" for="inputEmail">Yüklü Resim</label>
                                         <div class="col-lg-10">
                                             <img class="img-responsive"
-                                                 src="<?php echo $ayarrow['site_url'] . $reklam['reklam_resim']; ?>"
+                                                 src="<?php echo $ayarrow['site_url'].$reklam['reklam_resim']; ?>"
                                                  alt="">
                                         </div>
                                     </div>

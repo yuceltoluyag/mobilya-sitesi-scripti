@@ -1,6 +1,6 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
@@ -45,21 +45,16 @@ require_once 'sol.php';
                     }
 
                     $urun = $db->prepare('SELECT * FROM mesajlar ORDER BY mesaj_id DESC LIMIT :goster,:lim');
-                   
+
                     $turun = $urun->rowCount();
                     $lim = $ayarrow['site_sayfalama'];
                     $goster = $s * $lim - $lim;
 
-                   
-           
-
-
-                    $urun->bindValue(':goster', (int)$goster, PDO::PARAM_INT);
-                    $urun->bindValue(':lim', (int)$lim, PDO::PARAM_INT);
+                    $urun->bindValue(':goster', (int) $goster, PDO::PARAM_INT);
+                    $urun->bindValue(':lim', (int) $lim, PDO::PARAM_INT);
                     $urun->execute();
 
                     if ($urun->rowCount()) {
-
                         foreach ($urun as $row) {
                             ?>
                             
@@ -80,9 +75,7 @@ require_once 'sol.php';
                             <?php
                         }
                     } else {
-
                         echo '<div class="alert alert-warning">Mesajınız Bulunmamaktadır..</div>';
-
                     }
 
                     echo ' </tbody>
@@ -97,44 +90,32 @@ require_once 'sol.php';
                     $ssayi = ceil($turun / $lim);
                     $flim = 3;
                     if ($ssayi < 2) {
-
                         null;
                     } else {
-
                         if ($s > 4) {
-
                             $onceki = $s - 1;
 
-                            echo '<li><a href="' . $ayarrow['site_url'] . '/yonet//siparisler.php?s=1"><<<</a></li>';
-                            echo '<li><a href="' . $ayarrow['site_url'] . '/yonet//siparisler.php?s=' . $onceki . '"></a></li>';
+                            echo '<li><a href="'.$ayarrow['site_url'].'/yonet//siparisler.php?s=1"><<<</a></li>';
+                            echo '<li><a href="'.$ayarrow['site_url'].'/yonet//siparisler.php?s='.$onceki.'"></a></li>';
                         }
 
-
                         for ($i = $s - $flim; $i < $s + $flim + 1; $i++) {
-
                             if ($i > 0 && $i <= $ssayi) {
                                 if ($i == $s) {
-
-                                    echo '<li class="active"><a href="#">' . $i . '</a></li>';
-
+                                    echo '<li class="active"><a href="#">'.$i.'</a></li>';
                                 } else {
-
-                                    echo '<li><a href="' . $ayarrow['site_url'] . '/yonet/siparisler.php?s=' . $i . '">' . $i . '</a></li>';
-
+                                    echo '<li><a href="'.$ayarrow['site_url'].'/yonet/siparisler.php?s='.$i.'">'.$i.'</a></li>';
                                 }
                             }
                         }
 
                         if ($s <= $ssayi - 4) {
-
-                            echo '<li><a href="' . $ayarrow['site_url'] . '/yonet//siparisler.php?s=' . $sonraki . '">></a></li>';
-                            echo '<li><a href="' . $ayarrow['site_url'] . '/yonet//siparisler.php?s=' . $ssayi . '">>>></a></li></ul>
+                            echo '<li><a href="'.$ayarrow['site_url'].'/yonet//siparisler.php?s='.$sonraki.'">></a></li>';
+                            echo '<li><a href="'.$ayarrow['site_url'].'/yonet//siparisler.php?s='.$ssayi.'">>>></a></li></ul>
                     </div>
                   </div>';
-
                         }
                     }
-
 
                     ?>
 

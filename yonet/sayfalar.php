@@ -1,6 +1,6 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
@@ -44,21 +44,19 @@ require_once 'sol.php';
 
                             <?php
 
-                            $sayfa = $db->prepare("SELECT * FROM sayfalar ORDER BY sayfa_durum DESC,sayfa_sira ASC LIMIT 25");
+                            $sayfa = $db->prepare('SELECT * FROM sayfalar ORDER BY sayfa_durum DESC,sayfa_sira ASC LIMIT 25');
                             $sayfa->execute();
 
                             while ($scek = $sayfa->fetch(PDO::FETCH_ASSOC)) {
-
-
-                            ?>
+                                ?>
                             <tbody>
                             <tr>
                                 <td><img style="width:15vh;" class="img-responsive"
-                                         src="<?php echo $ayarrow['site_url'] . $scek['sayfa_resim']; ?>"
+                                         src="<?php echo $ayarrow['site_url'].$scek['sayfa_resim']; ?>"
                                          alt="Cinque Terre"></td>
                                 <td><?php echo $scek['sayfa_adi']; ?></td>
                                 <td><?php echo $scek['sayfa_sira']; ?></td>
-                                <td><?php echo $scek['sayfa_durum'] == 1 ? "<div class=\"label label-success\">Aktif</div>" : "<div class=\"label label-danger\">Pasif</div>" ?></td>
+                                <td><?php echo $scek['sayfa_durum'] == 1 ? '<div class="label label-success">Aktif</div>' : '<div class="label label-danger">Pasif</div>' ?></td>
                                 <td><a class="btn btn-info edit"
                                        href="sayfaduzenle.php?&id=<?php echo $scek['sayfa_id']; ?>"
                                        aria-label="Settings">

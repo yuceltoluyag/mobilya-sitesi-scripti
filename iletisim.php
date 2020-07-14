@@ -1,7 +1,7 @@
 <?php
 define('guvenlik', true);
-require_once("ust.php");
-require_once("navi.php");
+require_once 'ust.php';
+require_once 'navi.php';
 ?>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <header class="hero-area">
@@ -103,10 +103,10 @@ require_once("navi.php");
         var options = {
             zoom: 14,
             <?php
-            $a = $haritas["lat"];
-            $b = $haritas["lng"];
+            $a = $haritas['lat'];
+            $b = $haritas['lng'];
 
-            echo 'center: {lat: ' . $a . ', lng: ' . $b . '},';
+            echo 'center: {lat: '.$a.', lng: '.$b.'},';
             ?>
 
             mapTypeId: 'roadmap'
@@ -118,10 +118,10 @@ require_once("navi.php");
         var marker = new google.maps.Marker({
 
             <?php
-            $a = $haritas["lat"];
-            $b = $haritas["lng"];
+            $a = $haritas['lat'];
+            $b = $haritas['lng'];
 
-            echo 'position: {lat: ' . $a . ', lng: ' . $b . '},';
+            echo 'position: {lat: '.$a.', lng: '.$b.'},';
             ?>
             map: map
 
@@ -135,9 +135,6 @@ require_once("navi.php");
             $d = $haritas['telefon'];
 
             echo "content: '<h2>.$c.</h2><span>Telefon Numaramız : $d</span>'";
-
-
-
 
             ?>
 

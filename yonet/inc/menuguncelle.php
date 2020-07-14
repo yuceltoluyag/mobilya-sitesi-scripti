@@ -1,6 +1,6 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 require_once '../../sistem/fonksiyon.php';
 
 if (isset($_POST)) {
@@ -17,7 +17,7 @@ if (isset($_POST)) {
         echo 'bos';
     } else {
         $ayarkaydet = $db->prepare('UPDATE menuler SET menu_ad=?,menu_url=?,menu_sira=?, menu_ust=?,menu_durum=?, menu_sef=?  WHERE menu_id=?');
-        $noldu = $ayarkaydet->execute(array($kad, $menuurl,$menusira, $menu_ust, $menudurum, $seo, $id));
+        $noldu = $ayarkaydet->execute([$kad, $menuurl, $menusira, $menu_ust, $menudurum, $seo, $id]);
 
         if ($noldu) {
             echo 'ok';
@@ -26,9 +26,6 @@ if (isset($_POST)) {
         }
     }
 } else {
-    header("Location: ../menu.php");
+    header('Location: ../menu.php');
     exit(); // öldür.com
 }
-
-
-?>

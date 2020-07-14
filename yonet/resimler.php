@@ -1,5 +1,5 @@
 <?php
-define("guvenlik", true);
+define('guvenlik', true);
 require_once 'ust.php';
 require_once 'sol.php';
 ?>
@@ -17,7 +17,7 @@ require_once 'sol.php';
                             <form action="galeri.php" class="dropzone">
                                 <div class="dz-message" data-dz-message><span>Bu alana tıkladıktan sonra resimleri seçiniz.. Resimler yüklendikten sonra geri tuşuna basın. İşte Bu kadar :)</span>
                                 </div>
-                                <input type="hidden" name="galeriresim" value="<?php echo $_GET["id"]; ?>">
+                                <input type="hidden" name="galeriresim" value="<?php echo $_GET['id']; ?>">
                             </form>
                         </div>
                     </div>

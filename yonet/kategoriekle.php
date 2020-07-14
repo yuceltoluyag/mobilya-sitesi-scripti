@@ -1,6 +1,6 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 
 require_once 'ust.php';
 require_once 'sol.php';
@@ -90,7 +90,7 @@ require_once 'sol.php';
                                             <?php
 
                                             $veri = $db->prepare('SELECT * FROM  kategoriler WHERE kat_durum="1"');
-                                            $veri->execute(array());
+                                            $veri->execute([]);
                                             $v = $veri->fetchAll(PDO::FETCH_ASSOC);
                                             foreach ($v as $kat) {
                                                 ?>
@@ -98,7 +98,8 @@ require_once 'sol.php';
                                                 <option value="<?php echo $kat['kat_id']; ?>"><?php echo $kat['kat_adi']; ?></option>
 
 
-                                            <?php } ?>
+                                            <?php
+                                            } ?>
                                         </select><br>
                                     </div>
                                 </div>

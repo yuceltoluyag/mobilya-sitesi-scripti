@@ -1,11 +1,9 @@
 <?php
 
-define("guvenlik", true);
+define('guvenlik', true);
 require_once '../../sistem/fonksiyon.php';
 
-
 if ($_POST) {
-
     $sef = sef_link($_POST['menuad']);
     $ad = $_POST['menuad'];
     $menuurl = $_POST['menuurl'];
@@ -14,10 +12,10 @@ if ($_POST) {
     $menusira = $_POST['menusira'];
 
     if (empty($ad) || empty($menuurl) || empty($menusira)) {
-        echo "bos";
+        echo 'bos';
     } else {
         $ayarkaydet = $db->prepare('INSERT INTO menuler SET  menu_ad=?,menu_url=?,menu_sira=?,menu_ust=?,menu_durum=?,menu_sef=?');
-        $noldu = $ayarkaydet->execute(array($ad, $menuurl,$menusira, $menu_ust, $menudurum, $sef));
+        $noldu = $ayarkaydet->execute([$ad, $menuurl, $menusira, $menu_ust, $menudurum, $sef]);
         if ($noldu) {
             echo 'ok';
         } else {
@@ -25,8 +23,5 @@ if ($_POST) {
         }
     }
 } else {
-
     header('Location:../menu.php');
 }
-
-?>
