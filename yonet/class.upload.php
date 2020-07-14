@@ -2436,8 +2436,10 @@ class upload
         switch ($last) {
             case 'g':
                 $size *= 1024;
+                // no break
             case 'm':
                 $size *= 1024;
+                // no break
             case 'k':
                 $size *= 1024;
         }
@@ -4302,7 +4304,7 @@ class upload
                                             $filter,
                                             $this->image_text_font,
                                             $k * ($line_width + ($k > 0 && $k < (count($text)) ? $this->image_text_line_spacing : 0)),
-                                            $text_height - (2 * $this->image_text_padding_y) - ($this->image_text_alignment == 'l' ? 0 : (($t_height - strlen($v) * $char_width) / ($this->image_text_alignment == 'r' ? 1 : 2))) ,
+                                            $text_height - (2 * $this->image_text_padding_y) - ($this->image_text_alignment == 'l' ? 0 : (($t_height - strlen($v) * $char_width) / ($this->image_text_alignment == 'r' ? 1 : 2))),
                                             $v,
                                             $text_color
                                         );

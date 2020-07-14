@@ -37,9 +37,9 @@ $lim = $ayarrow['site_sayfalama'];
 $goster = $s * $lim - $lim;
 
 $sorgu = $db->prepare('SELECT * FROM urunler
-             
+
              INNER JOIN kategoriler on kategoriler.kat_id = urunler.u_katid
-             WHERE u_durum=:ud AND  kat_sef=:ks ORDER BY u_id DESC LIMIT :goster,:lim 
+             WHERE u_durum=:ud AND  kat_sef=:ks ORDER BY u_id DESC LIMIT :goster,:lim
 
             ');
 

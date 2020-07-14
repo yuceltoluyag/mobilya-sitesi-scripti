@@ -20,8 +20,8 @@ if (isset($_POST)) {
             //Dosya yeni adıyla uploadklasorune kaydedilecek
 
             if (move_uploaded_file($_FILES['sresim']['tmp_name'], $yeni_ad)) {
-                $ayarkaydet = $db->prepare('INSERT INTO slider SET 
-                  
+                $ayarkaydet = $db->prepare('INSERT INTO slider SET
+
                   slider_ad             =:ad,
                   slider_ne             =:nad,
                   slider_aciklama       =:nac,
@@ -29,7 +29,7 @@ if (isset($_POST)) {
                   slider_link           =:link,
                   slider_sira           =:sira,
                   slider_durum          =:durum
-                              
+
                               ');
 
                 $noldu = $ayarkaydet->execute([

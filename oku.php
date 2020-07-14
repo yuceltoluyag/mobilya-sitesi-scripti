@@ -240,8 +240,8 @@ require_once 'navi.php';
 
                             <?php
                                 } else {
-                                header('location:404.php');
-                            }
+                                    header('location:404.php');
+                                }
 
                             ?>
                             <script>popup = {

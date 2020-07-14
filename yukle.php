@@ -13,7 +13,7 @@ if (isset($_POST['sayfada'],$_POST['basla'])) {
     /* Kategori ve Urun Tablosu Birleştirme */
 
     $ur = $db->prepare(' SELECT * FROM urunler
-        
+
         INNER JOIN kategoriler on kategoriler.kat_id = urunler.u_katid
         INNER JOIN uyeler on      uyeler.uye_id      = urunler.u_ekleyen
         WHERE  u_durum=:durum ORDER BY u_id DESC LIMIT :goster , :lim

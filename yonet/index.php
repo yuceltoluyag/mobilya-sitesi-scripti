@@ -21,7 +21,8 @@ require_once '../sistem/fonksiyon.php';
   -->
 </head>
 <body>
-<?php if (!isset($_SESSION['oturum'])) { ?>
+<?php if (!isset($_SESSION['oturum'])) {
+    ?>
     <section class="material-half-bg">
         <div class="cover"></div>
     </section>
@@ -114,9 +115,12 @@ require_once '../sistem/fonksiyon.php';
 
     </section>
 
-<?php } else { ?>
+<?php
+} else {
+        ?>
     <?php require_once 'anasayfa.php'; ?>
-<?php } ?>
+<?php
+    } ?>
 
 
 </body>

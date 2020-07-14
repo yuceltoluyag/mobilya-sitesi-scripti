@@ -11,16 +11,16 @@ require_once '../../sistem/fonksiyon.php';
             if (empty($ad) || empty($kac)) {
                 echo 'bos';
             } else {
-                $ayarkaydet = $db->prepare('INSERT INTO kategoriler SET 
-                  
+                $ayarkaydet = $db->prepare('INSERT INTO kategoriler SET
+
                   kat_adi             =:ad,
                   kat_aciklama        =:aciklama,
                   kat_desc            =:kelime,
                   kat_ust            =:ust,
                   kat_durum          =:duru,
                   kat_sef             =:res
-                  
-                              
+
+
                               ');
 
                 $noldu = $ayarkaydet->execute([

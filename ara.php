@@ -35,7 +35,7 @@ require_once 'navi.php';
         $lim = $ayarrow['site_sayfalama'];
         $goster = $s * $lim - $lim;
         $sorgu = $db->prepare(' SELECT * FROM urunler
-                    
+
                     INNER JOIN kategoriler on kategoriler.kat_id = urunler.u_katid
                     INNER JOIN uyeler on      uyeler.uye_id      = urunler.u_ekleyen
                     WHERE  u_durum=:durum AND u_baslik LIKE :baslik ORDER BY u_id DESC  LIMIT :goster,:lim');
@@ -102,10 +102,10 @@ require_once 'navi.php';
                 }
             }
         } else {
-                echo '<div class="alert alert-danger">
+            echo '<div class="alert alert-danger">
 						  <strong>Üzgünüm!</strong> Aradığınız Kelimede Sonuç Bulunamadı..
 						</div>';
-            }
+        }
             ?>
             </ul>
         </div>

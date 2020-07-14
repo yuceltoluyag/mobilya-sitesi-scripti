@@ -4,13 +4,13 @@ define('guvenlik', true);
 require_once '../../sistem/fonksiyon.php';
 
        if (isset($_POST)) {
-           $ayarkaydet = $db->prepare('UPDATE ayarlar SET 
-                  
+           $ayarkaydet = $db->prepare('UPDATE ayarlar SET
+
                   site_facebook			  =:face,
                   site_twitter		    =:twit,
                   site_instagram      =:insta
-                  
-                              
+
+
                               WHERE site_id=1 	');
 
            $noldu = $ayarkaydet->execute([

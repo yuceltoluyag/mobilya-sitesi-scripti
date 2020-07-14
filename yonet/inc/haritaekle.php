@@ -4,8 +4,8 @@ define('guvenlik', true);
 require_once '../../sistem/fonksiyon.php';
 
 if (isset($_POST)) {
-    $ayarkaydet = $db->prepare('UPDATE harita SET 
-                  
+    $ayarkaydet = $db->prepare('UPDATE harita SET
+
                   adres			       =:adres,
                   telefon		       =:telefon,
                   email			       =:email,
@@ -15,7 +15,7 @@ if (isset($_POST)) {
                   ggle_api             =:ggle_api,
                   iletisim_ust             =:iletisimu,
                   iletisim_alt             =:iletisima
-                              
+
                               WHERE id=1 	');
 
     $noldu = $ayarkaydet->execute([

@@ -20,17 +20,17 @@ if (isset($_POST)) {
             //Dosya yeni adıyla uploadklasorune kaydedilecek
 
             if (move_uploaded_file($_FILES['rresim']['tmp_name'], $yeni_ad)) {
-                $ayarkaydet = $db->prepare('INSERT INTO reklamlar SET 
-                  
+                $ayarkaydet = $db->prepare('INSERT INTO reklamlar SET
+
                   reklam_baslik             =:bas,
                   reklam_icerik             =:racik,
                   reklam_resim              =:res,
                   reklam_sure               =:sur,
                   reklam_url                =:url,
                   reklam_zaman             =:szaman,
-                  reklam_onay              =:sonay 
-                 
-                              
+                  reklam_onay              =:sonay
+
+
                               ');
 
                 $noldu = $ayarkaydet->execute([
@@ -64,4 +64,3 @@ if (isset($_POST)) {
 echo json_encode($data);
 
 ?>
-

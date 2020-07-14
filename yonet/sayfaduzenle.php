@@ -110,16 +110,19 @@ $sicek = $sbul->fetch(PDO::FETCH_ASSOC);
                                     <div class="col-lg-10">
                                         <select class="form-control" id="select" name="sdurum">
 
-                                            <?php if ($sicek['sayfa_durum'] == 1) { ?>
+                                            <?php if ($sicek['sayfa_durum'] == 1) {
+    ?>
 
                                                 <option value="1">Aktif</option>
                                                 <option value="0">Pasif</option>
 
                                                 <?php
-                                            } else { ?>
+} else {
+        ?>
                                                 <option value="0">Pasif</option>
                                                 <option value="1">Aktif</option>
-                                            <?php } ?>
+                                            <?php
+    } ?>
 
                                         </select>
                                     </div>

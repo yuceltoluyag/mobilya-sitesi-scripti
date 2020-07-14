@@ -11,8 +11,3 @@ require_once 'orta.php';
 /* Alt Kısım */
 require_once 'alt.php';
 ?>
-
-
-     
-      
-    

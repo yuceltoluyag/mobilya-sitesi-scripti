@@ -30,7 +30,7 @@ if (isset($_POST)) {
                 $data['message'] = 'Lütfen Boş Alan Bırakmayınız';
             } else {
                 $ayarkaydet = $db->prepare('INSERT INTO urunler SET
-               
+
                 u_katid             =:kat,
                 u_ekleyen           =:kim,
                 u_baslik            =:baslik,

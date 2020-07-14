@@ -25,13 +25,13 @@ require_once 'sol.php';
         <div class="col-md-12">
             <div class="card">
                 <table class="table table-striped">
-                    
+
                     <thead>
                     <tr class="row-name">
                         <th>Mesaj Ad</th>
                         <th>Mesaj Telefon</th>
                         <th>Mesaj İçerik</th>
-                       
+
                        <th></th> <th></th>
                     </tr>
                     </thead>
@@ -57,19 +57,19 @@ require_once 'sol.php';
                     if ($urun->rowCount()) {
                         foreach ($urun as $row) {
                             ?>
-                            
-                             <tr> 
+
+                             <tr>
                                 <td><?php echo $row['mesaj_ad']; ?></td>
                                 <td><?php echo $row['mesaj_tel']; ?></td>
                                 <td><?php echo $row['mesaj_icerik']; ?></td>
-                              
 
-                               
+
+
                                 <td><a class="btn btn-danger edit"
                                        href="mesajsil.php?islem=mesajsil&id=<?php echo $row['mesaj_id']; ?>"
                                        aria-label="Settings">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </a></td> 
+                                    </a></td>
                             </tr>
 
                             <?php

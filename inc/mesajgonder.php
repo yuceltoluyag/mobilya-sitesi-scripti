@@ -12,7 +12,7 @@ if ($_POST) {
         echo 'bos';
     } else {
         $mesajgonder = $db->prepare('INSERT INTO mesajlar SET
-               
+
 
                mesaj_ad =:ad,
                mesaj_tel=:tel,

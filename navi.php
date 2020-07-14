@@ -32,15 +32,15 @@
                 $pquery = $db->query($sql);
                 ?>
 
-                <?php while ($parent = $pquery->fetch(PDO::FETCH_ASSOC)) { ?>
+                <?php while ($parent = $pquery->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
                     <?php
                     $parent_id = $parent['menu_id'];
                     $sql2 = "SELECT * FROM menuler WHERE menu_ust = '$parent_id'";
                     $cquery = $db->query($sql2);
                     $altmenu = $db->prepare('SELECT * FROM menuler WHERE menu_ust=? ORDER BY menu_sira');
                     $altmenu->execute([$parent_id]);
-                    $say = $altmenu->rowCount();
-                    ?>
+                    $say = $altmenu->rowCount(); ?>
                     <!-- Menu Items -->
                     <li <?php if ($say > 0) {
                         echo 'class="dropdown"';
@@ -54,14 +54,17 @@
                         echo '<span class="caret"></span>';
                     } ?></a>
                         <ul class="dropdown-menu" role="menu">
-                            <?php while ($child = $cquery->fetch(PDO::FETCH_ASSOC)) { ?>
+                            <?php while ($child = $cquery->fetch(PDO::FETCH_ASSOC)) {
+                        ?>
                                 <li>
                                     <a href="sayfalar.php?do&sayfa=<?php echo $child['menu_url']; ?>"><?php echo $child['menu_ad']; ?></a>
                                 </li>
-                            <?php } ?>
+                            <?php
+                    } ?>
                         </ul>
                     </li>
-                <?php } ?>
+                <?php
+                } ?>
             </ul>
         </div>
 
