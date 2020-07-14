@@ -154,6 +154,3 @@ require_once 'sol.php';
                 </div>
             </div>
         </div>
-
-
-   

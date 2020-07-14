@@ -20,15 +20,15 @@ if (isset($_POST)) {
                 $u = reklamgetir($id);
                 foreach ($u as $reklam);
                 $eskiresim = '../../'.$reklam['reklam_resim'];
-                $ayarkaydet = $db->prepare('UPDATE reklamlar SET 
+                $ayarkaydet = $db->prepare('UPDATE reklamlar SET
             reklam_baslik            =:sad,
             reklam_icerik            =:nad,
             reklam_resim             =:nac,
             reklam_sure              =:slink,
             reklam_url               =:ssira,
             reklam_zaman             =:szaman,
-            reklam_onay              =:sonay 
-          
+            reklam_onay              =:sonay
+
             WHERE reklam_id =:sid');
                 $noldu = $ayarkaydet->execute([
                     ':sid'    => $id,
@@ -54,14 +54,14 @@ if (isset($_POST)) {
         }
     } else {
         $id = $_POST['reklamid'];
-        $ayarkaydet = $db->prepare('UPDATE reklamlar SET 
+        $ayarkaydet = $db->prepare('UPDATE reklamlar SET
 
             reklam_baslik            =:sad,
             reklam_icerik            =:nad,
             reklam_sure              =:slink,
             reklam_url               =:ssira,
             reklam_zaman             =:szaman,
-            reklam_onay              =:sonay 
+            reklam_onay              =:sonay
 
             WHERE reklam_id =:sid');
 

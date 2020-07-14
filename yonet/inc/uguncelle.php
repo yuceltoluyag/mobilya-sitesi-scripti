@@ -20,7 +20,7 @@ if (isset($_POST)) {
                 $u = urungetir($id);
                 foreach ($u as $urunul);
                 $eskiresim = '../../'.$urunul['u_resim'];
-                $ayarkaydet = $db->prepare('UPDATE urunler SET 
+                $ayarkaydet = $db->prepare('UPDATE urunler SET
 
                 u_baslik         =:sad,
                 u_fiyat          =:slink,
@@ -59,7 +59,7 @@ if (isset($_POST)) {
         $id = $_POST['urunid'];
         $bas = sef_link($_POST['siba']);
 
-        $ayarkaydet = $db->prepare('UPDATE urunler SET 
+        $ayarkaydet = $db->prepare('UPDATE urunler SET
 
               u_baslik         =:sad,
               u_fiyat          =:slink,

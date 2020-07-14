@@ -13,7 +13,7 @@ if ($_POST) {
         echo 'bos';
     } else {
         $sekle = $db->prepare('INSERT INTO siparisler SET
-            
+
 			s_adsoy  =:sad,
 			s_eposta =:sap,
 			s_tel    =:stel,

@@ -4,14 +4,14 @@ define('guvenlik', true);
 require_once '../../sistem/fonksiyon.php';
 
        if (isset($_POST)) {
-           $ayarkaydet = $db->prepare('UPDATE ayarlar SET 
-                  
+           $ayarkaydet = $db->prepare('UPDATE ayarlar SET
+
                   site_url			       =:url,
                   site_baslik		       =:sbaslik,
                   site_anahtarkelime   =:siteanahtar,
                   site_aciklama        =:sicaklama,
                   site_hakkinda        =:sihakkinda
-                              
+
                               WHERE site_id=1 	');
 
            $noldu = $ayarkaydet->execute([

@@ -20,7 +20,7 @@ if (isset($_POST)) {
                 $u = slidergetir($id);
                 foreach ($u as $slider);
                 $eskiresim = '../../'.$slider['slider_resim'];
-                $ayarkaydet = $db->prepare('UPDATE slider SET 
+                $ayarkaydet = $db->prepare('UPDATE slider SET
 
             slider_ad            =:sad,
             slider_ne            =:nad,
@@ -58,7 +58,7 @@ if (isset($_POST)) {
     } else {
         $id = $_POST['sliderid'];
 
-        $ayarkaydet = $db->prepare('UPDATE slider SET 
+        $ayarkaydet = $db->prepare('UPDATE slider SET
 
             slider_ad            =:sad,
             slider_ne            =:nad,
