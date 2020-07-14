@@ -102,10 +102,10 @@ require_once 'navi.php';
                 }
             }
         } else {
-                echo '<div class="alert alert-danger">
+            echo '<div class="alert alert-danger">
 						  <strong>Üzgünüm!</strong> Aradığınız Kelimede Sonuç Bulunamadı..
 						</div>';
-            }
+        }
             ?>
             </ul>
         </div>

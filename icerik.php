@@ -37,7 +37,8 @@
     </div>
     <?php
 
-    if ($reklam->reklam_onay == '1' and !isset($_COOKIE['reklam'])) { ?>
+    if ($reklam->reklam_onay == '1' and !isset($_COOKIE['reklam'])) {
+        ?>
         <script>
             $().ready(function () {
                 $("#exampleModal").modal("show");
@@ -57,7 +58,8 @@
 
 
         </script>
-    <?php } ?>
+    <?php
+    } ?>
     <div id="urunler"></div>
     <div class="row grid_row list_page">
 
